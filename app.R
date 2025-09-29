@@ -35,7 +35,7 @@ ui <- dashboardPage(skin = 'red',
                       )
                     ),
                     dashboardBody(
-                      includeCSS("www/field_data.css"),
+                      includeCSS("www/ivnis.css"),
                       tabItems(
                         # дэшборд ----
                         tabItem("dashboard",
