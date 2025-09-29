@@ -11,7 +11,7 @@ RUN R -e "install.packages(c('ggplot2',  'dplyr', 'readxl', 'terra', 'dotenv', '
 COPY . /home/shiny-app/
 
 # Expose the application port
-EXPOSE 80808
+EXPOSE 8085
 
 # Run the R Shiny app
-CMD ["R", "-e", "shiny::runApp('/home/shiny-app', host='0.0.0.0', port=80808)"]
+CMD ["R", "-e", "shiny::runApp('/home/shiny-app', host='0.0.0.0', port=8085)"]
