@@ -4,6 +4,7 @@ library(shinydashboard)
 library(shinyWidgets)
 # library(leaflet)
 library(dygraphs)
+library(dotenv)
 library(htmltools)
 library(RPostgreSQL)
 library(DT)
@@ -74,7 +75,8 @@ get_station_list_ui <- function() {
       selectInput(
         inputId = "ui_stations",
         label = "Выберите станции:",
-        choices = stations$name_station,
+        choices = stations$name_station, 
+        width = "300px",
         multiple = TRUE,
         selectize = TRUE
       )

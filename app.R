@@ -3,6 +3,7 @@ library(shinyjs)
 library(shinydashboard)
 library(shinyWidgets)
 # library(leaflet)
+library(dotenv)
 library(dygraphs)
 library(htmltools)
 library(RPostgreSQL)
@@ -168,7 +169,7 @@ ui <- dashboardPage(skin = 'red',
                                     # div(style='overflow: scroll; max-height: 600px', 
                                     #     plotOutput('plotdata')),
                                     div(style='overflow: scroll', 
-                                        htmlOutput('plotdata')),
+                                        htmlOutput('plotdata', width='100%')),
                                     div(dataTableOutput("datatable"), style = "font-size:80%; overflow-y:scroll; max-height: 600px")
                                   )
                                 )
@@ -280,7 +281,7 @@ server <- function(input, output, session) {
   
   output$stations_iframe_map <- renderUI({
     tags$iframe(src ="https://wshydro.nextgis.com/resource/663/display/tiny?angle=0&zoom=8&styles=656%2C728%2C708%2C672&linkMainMap=true&events=false&panel=none&controls=&panels=&base=basemap_0&lon=36.0354&lat=56.8787", 
-                style="overflow:hidden;height:500px;width:600px", height="500", width="600")
+                style="overflow:hidden;height:500px;width:700px", height="500", width="700")
   })
   
   
@@ -496,7 +497,7 @@ server <- function(input, output, session) {
                       detail = paste("Показатель:", current_var))
           
           # Строим график
-          dygraph(combined_ts, main = current_var) %>%
+          dygraph(combined_ts, main = current_var, width = '100%') %>%
             dyRangeSelector() %>%
             dyAxis("x", label = "Дата") %>%
             dyAxis("y", label = current_var) %>%
