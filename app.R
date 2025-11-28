@@ -19,7 +19,7 @@ dotenv::load_dot_env()
 
 stl <- "display:inline-block; vertical-align:top"
 
-ui <- dashboardPage(skin = 'red', 
+ui <- dashboardPage(skin = 'green', 
                     dashboardHeader(title = "IvankovoNIS"),
                     dashboardSidebar(
                       sidebarMenu(
